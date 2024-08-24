@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'style.css' %}">
+	<title> tên trang </title>
+</head>
+
+<body>
+	{% if user_id != None%}
+	<p>đã đăng nhập {{user_id}}</p>
+	{% endif %}
+	<p>hello world</p>
+	{% include "member.html" %}
+	<a href="sigin" class="">Sigin</a> or <a href="sigup" class="">Sigup</a> or <a href="sigout" class="">Sigout</a>
+</body>
+
+</html>
