@@ -52,4 +52,22 @@ def checksigup(request):
 		member.save()
 		return redirect('/')
 	return redirect('/')
+
+def delete(request, id):
+	member = Member.objects.get(id=id)
+	member.delete()
+	return redirect('/')
     
+def getedit(request, id):
+	member = Member.objects.get(id=id)
+	return render(request, 'edit.html', {'member': member})
+
+def update(request, id):
+	member = Member.objects.get(id=id)
+	member.username = request.POST['username']
+	member.password = request.POST['password']
+	member.phonenumber = request.POST['phonenumber']
+	member.realname = request.POST['realname']
+	member.save()
+	return redirect('/')
+	

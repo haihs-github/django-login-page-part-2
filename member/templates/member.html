@@ -1,3 +1,4 @@
 {% for x in member %}
-<p>user: {{x.username}} -- name: {{x.realname}} -- <a href="/">details</a></p>
+<p>user: {{x.username}} -- name: {{x.realname}} -- user: {{x.phonenumber}} <a href="edit/{{x.id}}">edit</a> <a
+		href="delete/{{x.id}}">delete</a> </p> <br>
 {% endfor %}

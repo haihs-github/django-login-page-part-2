@@ -1,0 +1,12 @@
+<form action="{% url 'update' member.id %}" method="post">
+	{% csrf_token %}
+	<label>username</label>
+	<input type="text" name="username" value="{{member.username}}">
+	<label>password</label>
+	<input type="text" name="password" value="{{member.password}}">
+	<label>phonenumber</label>
+	<input type="text " name="phonenumber" value="{{member.phonenumber}}">
+	<label>realname</label>
+	<input type="text " name="realname" value="{{member.realname}}">
+	<button type="submit" id="btn2">edit</button>
+</form>
