@@ -9,12 +9,16 @@
 </head>
 
 <body>
-	{% if user_id != None%}
-	<p>đã đăng nhập {{user_id}}</p>
-	{% endif %}
+
 	<p>hello world</p>
 	{% include "member.html" %}
-	<a href="sigin" class="">Sigin</a> or <a href="sigup" class="">Sigup</a> or <a href="sigout" class="">Sigout</a>
+	{% if user_id != None%}
+	<p>đã đăng nhập {{user_id}} -- <a href="sigout" class="">Sigout</a></p>
+	{% else %}
+	<a href="sigin" class="">Sigin</a> or
+	{% endif %}
+	<a href="sigup" class="">Sigup</a>
+
 </body>
 
 </html>

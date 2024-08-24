@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import Member
+from django.contrib.sessions.models import Session
 
 def index(request):
     id = request.session.get('user_id')  # Truy xuất user_id từ session
@@ -29,4 +30,26 @@ def checklogin(request):
 			return redirect('/')
 	return render(request, 'sigin.html')
 
+def sigout(request):
+	request.session.flush()
+	return redirect('/')
 
+def sigup(request):
+	return render(request, 'sigup.html')
+
+def checksigup(request):
+	username = request.POST['username']
+	password = request.POST['password']
+	repassword = request.POST['repassword']
+	phonenumber = request.POST['phonenumber']
+	realname = request.POST['realname']
+	membernames = list(Member.objects.values_list('username', flat=True))
+	print('ten nguoi dung',membernames)
+	if username in membernames:
+		return redirect('/')
+	elif password == repassword:
+		member = Member(username=username, password=password, phonenumber=phonenumber, realname=realname)
+		member.save()
+		return redirect('/')
+	return redirect('/')
+    

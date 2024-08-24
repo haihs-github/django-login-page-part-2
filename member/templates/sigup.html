@@ -1,0 +1,14 @@
+<form action="{% url 'checksigup' %}" method="post">
+	{% csrf_token %}
+	<label>username</label>
+	<input type="text" name="username">
+	<label>password</label>
+	<input type="text" name="password">
+	<label>repassword</label>
+	<input type="text " name="repassword">
+	<label>phonenumber</label>
+	<input type="text " name="phonenumber">
+	<label>realname</label>
+	<input type="text " name="realname">
+	<button type="submit" id="btn1">login</button>
+</form>
