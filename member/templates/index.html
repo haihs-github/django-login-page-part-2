@@ -9,7 +9,13 @@
 </head>
 
 <body>
-
+	{% if messages %}
+	<ul class="messages">
+		{% for message in messages %}
+		<li class="{{ message.tags }}">{{ message }}</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
 	<p>hello world</p>
 	{% include "member.html" %}
 	{% if user_id != None%}

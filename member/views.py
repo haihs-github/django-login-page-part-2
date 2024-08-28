@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Member
 from django.contrib.sessions.models import Session
+from django.contrib import messages
 
 def index(request):
     id = request.session.get('user_id')  # Truy xuất user_id từ session
@@ -27,6 +28,7 @@ def checklogin(request):
 			context = {
 				'member': member,
 			}
+			messages.success(request, "Bạn đã đăng nhập thành công!")
 			return redirect('/')
 	return render(request, 'sigin.html')
 
